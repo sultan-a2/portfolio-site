@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { TitleEmphasis } from "@/components/title-emphasis";
 import { getProject, projects } from "@/data/projects";
 
 export function generateStaticParams() {
@@ -35,9 +34,7 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
             <p>{project.discipline}</p>
             {project.context ? <p>{project.context}</p> : null}
           </div>
-          <h1>
-            <TitleEmphasis name={project.name} />
-          </h1>
+          <h1>{project.name}</h1>
           <div className="project-intro-row">
             <p className="project-intro">{project.intro}</p>
             {project.liveUrl ? (
@@ -90,9 +87,7 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
           <div className="project-next">
             <Link href={`/work/${nextProject.slug}`}>
               <span>Next project</span>
-              <strong>
-                <TitleEmphasis name={nextProject.name} />
-              </strong>
+              <strong>{nextProject.name}</strong>
             </Link>
           </div>
         </div>

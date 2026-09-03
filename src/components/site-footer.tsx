@@ -5,7 +5,7 @@ export function SiteFooter() {
     <footer className="site-footer" id="contact">
       <div className="site-footer-inner">
         <h2>
-          Let&apos;s make something <em>good</em>
+          Let&apos;s make something good
         </h2>
         <div className="footer-links">
           <a href="mailto:sultan91414@gmail.com">Email</a>

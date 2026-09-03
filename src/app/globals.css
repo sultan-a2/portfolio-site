@@ -48,10 +48,6 @@ a:focus-visible {
   outline-color: var(--paper);
 }
 
-em {
-  font-style: italic;
-}
-
 .shell {
   width: min(100%, var(--max));
   margin-inline: auto;
@@ -137,17 +133,6 @@ em {
   font-weight: 630;
   letter-spacing: -0.082em;
   line-height: 0.9;
-}
-
-.hero h1 em,
-.section-heading h2 em,
-.project-hero h1 em,
-.project-caption h3 em,
-.project-next em,
-.about-main h1 em,
-.site-footer h2 em {
-  display: inline-block;
-  padding-bottom: 0.1em;
 }
 
 .hero-copy {

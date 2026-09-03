@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { TitleEmphasis } from "@/components/title-emphasis";
 import { projects } from "@/data/projects";
 
 export default function Home() {
@@ -11,9 +10,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <section className="hero shell">
-          <h1>
-            Sultan <em>Ali</em>
-          </h1>
+          <h1>Sultan Ali</h1>
           <div className="hero-copy">
             <p>Designer + Creative Developer</p>
             <p>Dubai, UAE</p>
@@ -26,9 +23,7 @@ export default function Home() {
 
         <section className="work shell" id="work" aria-labelledby="work-title">
           <div className="section-heading">
-            <h2 id="work-title">
-              Selected <em>work</em>
-            </h2>
+            <h2 id="work-title">Selected work</h2>
             <p>Four projects, shown properly.</p>
           </div>
 
@@ -51,9 +46,7 @@ export default function Home() {
                 </Link>
                 <div className="project-caption">
                   <h3>
-                    <Link href={`/work/${project.slug}`}>
-                      <TitleEmphasis name={project.name} />
-                    </Link>
+                    <Link href={`/work/${project.slug}`}>{project.name}</Link>
                   </h3>
                   <p>{project.discipline}</p>
                 </div>
