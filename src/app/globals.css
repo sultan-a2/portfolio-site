@@ -237,8 +237,41 @@ blockquote {
 }
 
 .work-card {
+  position: relative;
   border-color: rgb(241 239 233 / 0.12);
   background: rgb(241 239 233 / 0.04);
+}
+
+.work-live {
+  display: flex;
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 30;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgb(241 239 233 / 0.22);
+  padding: 4px 9px;
+  background: rgb(11 12 16 / 0.72);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+}
+
+.work-live::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #5fd08a;
+  box-shadow: 0 0 0 3px rgb(95 208 138 / 0.18);
+}
+
+.work-live:hover {
+  border-color: var(--ink);
 }
 
 .work-card-image {
@@ -361,6 +394,25 @@ blockquote {
 .concepts-empty {
   margin-top: 10px;
   font-size: 13px;
+}
+
+.dialog-close {
+  border: 1px solid rgb(241 239 233 / 0.28);
+  background: rgb(11 12 16 / 0.6);
+  color: var(--ink);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.dialog-close:hover {
+  border-color: var(--ink);
+  background: rgb(11 12 16 / 0.85);
+}
+
+.dialog-close:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
 }
 
 .dialog-overlay {

@@ -34,6 +34,11 @@ export default function Home() {
                   <span className="work-card-name">{project.name}</span>
                   <small>{project.discipline}</small>
                 </Link>
+                {project.liveUrl ? (
+                  <a className="work-live" href={project.liveUrl} target="_blank" rel="noreferrer">
+                    Live
+                  </a>
+                ) : null}
               </LiquidGlassCard>
             ))}
           </div>

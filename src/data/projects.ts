@@ -48,7 +48,7 @@ export const projects: Project[] = [
     discipline: "Web design + development",
     context: "Personal project",
     intro: "I’m a big fan of xianxia, stories where mortals become immortals, so I’m building a niche home for readers.",
-    cover: { src: "/work/wayfarer/hero.png", alt: "Wayfarer xianxia reading website home page", width: 1280, height: 800 },
+    cover: { src: "/work/wayfarer/live-hero.webp", alt: "Wayfarer home page, a halftone deer leaping across a blue field", width: 1600, height: 1000 },
     liveUrl: "https://wayfarer-five-hazel.vercel.app/",
     blocks: [
       { type: "image", image: { src: "/work/wayfarer/hero.png", alt: "Wayfarer home page with a halftone white deer", width: 1280, height: 800 }, caption: "A home for readers of xianxia, xuanhuan, and wuxia" },
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     name: "Nargis Raza",
     discipline: "Web design",
     intro: "A personal site for transpersonal psychologist Nargis Raza.",
-    cover: { src: "/work/nargis/hero.png", alt: "Nargis Raza personal website home page", width: 1637, height: 834 },
+    cover: { src: "/work/nargis/live-hero.webp", alt: "Nargis Raza home page, helping you come back to yourself", width: 1600, height: 1000 },
     liveUrl: "https://nargis-raza-website.vercel.app/",
     blocks: [
       { type: "image", image: { src: "/work/nargis/hero.png", alt: "Nargis Raza website hero about freeing the feminine spirit", width: 1637, height: 834 }, caption: "Home page" },
@@ -77,10 +77,10 @@ export const projects: Project[] = [
     name: "Suzanne Saleh",
     discipline: "Print + web design",
     intro: "Print and the live site for Suzanne Saleh’s midlife wellness practice.",
-    cover: { src: "/work/suzanne-saleh/hero.png", alt: "Suzanne Saleh website home page", width: 1425, height: 990 },
+    cover: { src: "/work/suzanne-saleh/live-hero.webp", alt: "Suzanne Saleh home page, let’s make midlife a little less complicated", width: 1600, height: 1000 },
     liveUrl: "https://suzannesaleh.com/",
     blocks: [
-      { type: "image", image: { src: "/work/suzanne-saleh/hero.png", alt: "Suzanne Saleh website home page", width: 1425, height: 990 }, caption: "Home page" },
+      { type: "image", image: { src: "/work/suzanne-saleh/hero.png", alt: "Suzanne Saleh home page, let’s make midlife a little less complicated", width: 1600, height: 1000 }, caption: "Home page" },
       { type: "video", src: "/work/suzanne-saleh/walkthrough.mp4", width: 1280, height: 603, caption: "Website walkthrough" },
       { type: "pair", images: [
         { src: "/work/suzanne-saleh/flyer-01.png", alt: "Suzanne Saleh holistic wellness services flyer", width: 1080, height: 1532 },

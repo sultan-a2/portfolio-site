@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import type React from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -51,6 +52,21 @@ export function ConceptGallery({ concepts }: { concepts: Concept[] }) {
     setOpenIndex(index);
   };
 
+  // Clicking the empty space around the image closes, but a drag must not.
+  const pressPoint = useRef<{ x: number; y: number } | null>(null);
+
+  const onBackdropPointerDown = (event: React.PointerEvent) => {
+    pressPoint.current = { x: event.clientX, y: event.clientY };
+  };
+
+  const onBackdropClick = (event: React.MouseEvent) => {
+    const start = pressPoint.current;
+    pressPoint.current = null;
+    if (start && Math.hypot(event.clientX - start.x, event.clientY - start.y) > 8) return;
+    if ((event.target as HTMLElement).closest("img, button, a, .lightbox-glass")) return;
+    setOpenIndex(null);
+  };
+
   return (
     <>
       <ul className="concept-index">
@@ -78,7 +94,11 @@ export function ConceptGallery({ concepts }: { concepts: Concept[] }) {
 
       <Dialog open={concept !== null} onOpenChange={(next) => !next && setOpenIndex(null)}>
         {concept ? (
-          <DialogContent closeLabel="Close this concept">
+          <DialogContent
+            closeLabel="Close this concept"
+            onPointerDown={onBackdropPointerDown}
+            onClick={onBackdropClick}
+          >
             <DialogTitle className="sr-only">{concept.title}</DialogTitle>
             <DialogDescription className="sr-only">
               Image {slide + 1} of {total}. Use the arrow keys to move through the set.
