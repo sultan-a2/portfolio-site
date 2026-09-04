@@ -19,7 +19,7 @@ export default function Home() {
           </h1>
           <div className="home-work">
             {projects.map((project) => (
-              <LiquidGlassCard key={project.slug} glassSize="sm" className="work-card">
+              <LiquidGlassCard key={project.slug} glassSize="sm" className="work-card p-0">
                 <Link href={`/work/${project.slug}`}>
                   <span className="work-card-image">
                     <Image

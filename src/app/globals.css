@@ -281,8 +281,8 @@ blockquote {
 .work-live {
   display: flex;
   position: absolute;
-  top: 22px;
-  right: 22px;
+  top: 12px;
+  right: 12px;
   z-index: 30;
   align-items: center;
   gap: 6px;
@@ -318,8 +318,9 @@ blockquote {
 
 .work-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
+  object-position: top;
   transition: transform 400ms ease;
 }
 
@@ -330,13 +331,13 @@ blockquote {
 
 .work-card-name {
   display: block;
-  margin-top: 16px;
+  padding: 13px 15px 0;
   font-size: 17px;
 }
 
 .work-card small {
   display: block;
-  margin-top: 3px;
+  padding: 3px 15px 15px;
   color: var(--muted);
   font-family: var(--sans);
   font-size: 11px;
