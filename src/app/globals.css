@@ -168,32 +168,32 @@ blockquote {
 
 .shine {
   display: inline;
-  background-image: linear-gradient(
+  background-image: repeating-linear-gradient(
     110deg,
-    var(--ink) 36%,
-    #d94a32 42%,
-    #e07820 44.6%,
-    #e8b41c 47.3%,
-    #7a9a2e 50%,
-    #2e9a78 52.6%,
-    #2a8fbf 55.3%,
-    #4363ac 58%,
-    var(--ink) 64%
+    var(--ink) 0 1.5em,
+    #d94a32 2.3em,
+    #e07820 3em,
+    #e8b41c 3.7em,
+    #7a9a2e 4.4em,
+    #2e9a78 5.1em,
+    #2a8fbf 5.8em,
+    #4363ac 6.5em,
+    var(--ink) 7.3em 9em
   );
-  background-size: 200% 100%;
-  background-position-x: 130%;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: shine-sweep 3.6s linear infinite;
+  animation: shine-sweep 2.8s linear infinite;
 }
 
+/* One full period of the repeating band, so the loop has no seam:
+   9em along a 110deg axis is 9 / sin(110deg) across the x axis. */
 @keyframes shine-sweep {
   from {
-    background-position-x: 130%;
+    background-position-x: 0em;
   }
   to {
-    background-position-x: -130%;
+    background-position-x: -9.58em;
   }
 }
 
