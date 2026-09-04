@@ -55,10 +55,7 @@ export function ConceptGallery({ concepts }: { concepts: Concept[] }) {
               </span>
               <span className="concept-tile-count">{item.images.length}</span>
             </button>
-            <figcaption>
-              <span className="concept-tile-title">{item.title}</span>
-              <span className="concept-tile-note">{item.note}</span>
-            </figcaption>
+            <figcaption>{item.title}</figcaption>
           </figure>
         ))}
       </div>
@@ -68,7 +65,7 @@ export function ConceptGallery({ concepts }: { concepts: Concept[] }) {
           <DialogContent closeLabel="Close this concept">
             <DialogTitle className="sr-only">{concept.title}</DialogTitle>
             <DialogDescription className="sr-only">
-              {concept.note}. Image {slide + 1} of {total}. Use the arrow keys to move through the set.
+              Image {slide + 1} of {total}. Use the arrow keys to move through the set.
             </DialogDescription>
 
             <div className="lightbox-stage">

@@ -9,7 +9,6 @@ export type ConceptImage = {
 export type Concept = {
   slug: string;
   title: string;
-  note: string;
   images: ConceptImage[];
 };
 
@@ -17,7 +16,6 @@ export const concepts: Concept[] = [
   {
     slug: "prostasia",
     title: "Prostasía",
-    note: "A privacy company that keeps nothing",
     images: [
       {
         src: "/concepts/prostasia/home.webp",
@@ -52,7 +50,6 @@ export const concepts: Concept[] = [
   {
     slug: "under-the-star",
     title: "Under the star",
-    note: "Midjourney set, painted light and one bright star",
     images: [
       {
         src: "/concepts/under-the-star/wide-reader.webp",
@@ -87,7 +84,6 @@ export const concepts: Concept[] = [
   {
     slug: "studies",
     title: "Image studies",
-    note: "Textures and skies I keep coming back to",
     images: [
       {
         src: "/concepts/studies/sky.webp",
@@ -115,7 +111,6 @@ export const concepts: Concept[] = [
   {
     slug: "cyanotype",
     title: "Cyanotype daylight",
-    note: "A fuller layout for 7/2, made in Paper",
     images: [
       {
         src: "/concepts/cyanotype/full-page.webp",
