@@ -49,4 +49,11 @@ export const concepts: Concept[] = [
     height: 1024,
     caption: "Caelum, moon study",
   },
+  {
+    src: "/concepts/seven-two-cyanotype.webp",
+    alt: "Cyanotype daylight landing page direction for 7/2, a date discovery site",
+    width: 1200,
+    height: 2733,
+    caption: "7/2, cyanotype daylight direction",
+  },
 ];
