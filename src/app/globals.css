@@ -180,22 +180,20 @@ blockquote {
     #4363ac 58%,
     var(--ink) 64%
   );
-  background-size: 250% 100%;
-  background-position-x: 150%;
+  background-size: 200% 100%;
+  background-position-x: 130%;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: shine-sweep 7s ease-in-out infinite;
+  animation: shine-sweep 3.6s linear infinite;
 }
 
 @keyframes shine-sweep {
-  0%,
-  12% {
-    background-position-x: 150%;
+  from {
+    background-position-x: 130%;
   }
-  55%,
-  100% {
-    background-position-x: -150%;
+  to {
+    background-position-x: -130%;
   }
 }
 

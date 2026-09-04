@@ -47,7 +47,7 @@ export default function Home() {
         <section className="home-band" aria-label="Practice and introduction">
           <div>
             <h2 className="home-heading">
-              <ShineText delay="1.4s">Current practice</ShineText>
+              <ShineText delay="0.5s">Current practice</ShineText>
             </h2>
             <p>Design, visual direction, and frontend development.</p>
             <Link href="/about" className="text-link">
@@ -56,7 +56,7 @@ export default function Home() {
           </div>
           <div>
             <h2 className="home-heading">
-              <ShineText delay="2.8s">About Sultan</ShineText>
+              <ShineText delay="1s">About Sultan</ShineText>
             </h2>
             <p>
               I&apos;m a computer science graduate from Bristol, back in Dubai, the city I grew up in.
@@ -67,7 +67,7 @@ export default function Home() {
 
         <section id="concepts" aria-labelledby="concepts-title">
           <h2 id="concepts-title" className="home-heading">
-            <ShineText delay="4.2s">Concepts</ShineText>
+            <ShineText delay="1.5s">Concepts</ShineText>
           </h2>
           <ConceptGallery concepts={concepts} />
         </section>
