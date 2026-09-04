@@ -833,6 +833,33 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
+  /* Pictures run to the screen edge on a phone; only the words keep a margin */
+  .case-study {
+    gap: 30px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .media-pair {
+    gap: 12px;
+  }
+
+  /* Stacked, so nothing needs cropping to match a neighbour */
+  .media-pair img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .media-caption,
+  .project-next {
+    margin-right: var(--gutter);
+    margin-left: var(--gutter);
+  }
+
+  .home-work {
+    gap: 14px;
+  }
+
   .project-next a {
     align-items: flex-start;
     flex-direction: column;
