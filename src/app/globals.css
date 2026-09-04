@@ -228,19 +228,21 @@ blockquote {
 
 .study-shelf {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
-  gap: clamp(18px, 2vw, 34px);
+  column-gap: clamp(18px, 2vw, 34px);
+  row-gap: clamp(30px, 3.5vw, 52px);
 }
 
 .study-shelf figure {
   width: clamp(180px, 18vw, 290px);
 }
 
-.study-shelf figure:nth-child(2) {
+.study-shelf figure:nth-child(3n + 2) {
   width: clamp(160px, 16vw, 255px);
 }
 
-.study-shelf figure:nth-child(3) {
+.study-shelf figure:nth-child(3n) {
   width: clamp(135px, 14vw, 220px);
 }
 
