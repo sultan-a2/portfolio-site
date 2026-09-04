@@ -87,6 +87,17 @@ a {
   text-decoration: none;
 }
 
+/* Cinnabar seal and gold leaf, the way a red stamp sits on paper */
+::selection {
+  background: #a82a1c;
+  color: #f4dfb0;
+}
+
+::-moz-selection {
+  background: #a82a1c;
+  color: #f4dfb0;
+}
+
 a,
 button,
 summary,
@@ -129,11 +140,6 @@ h2,
 h3,
 blockquote {
   margin: 0;
-}
-
-::selection {
-  background: #dad8d2;
-  color: var(--ink);
 }
 
 :focus-visible {
