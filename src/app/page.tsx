@@ -2,57 +2,74 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { concepts } from "@/data/concepts";
 import { projects } from "@/data/projects";
 
 export default function Home() {
   return (
     <>
       <SiteHeader />
-      <main>
-        <section className="hero shell">
-          <h1>Sultan Ali</h1>
-          <div className="hero-copy">
-            <p>Designer + Creative Developer</p>
-            <p>Dubai, UAE</p>
-          </div>
-          <p className="intro">
-            I&apos;m a junior designer and creative developer making websites,
-            identities, and visual experiments with a strong point of view.
-          </p>
-        </section>
-
-        <section className="work shell" id="work" aria-labelledby="work-title">
-          <div className="section-heading">
-            <h2 id="work-title">Selected work</h2>
-            <p>Four projects, shown properly.</p>
-          </div>
-
-          <div className="project-list">
-            {projects.map((project, index) => (
-              <article className="project-preview" key={project.slug}>
-                <Link
-                  href={`/work/${project.slug}`}
-                  className="project-image-link"
-                  aria-label={`View ${project.name} project`}
-                >
-                  <Image
-                    src={project.cover.src}
-                    alt={project.cover.alt}
-                    width={project.cover.width}
-                    height={project.cover.height}
-                    sizes="(max-width: 900px) 100vw, 92vw"
-                    priority={index === 0}
-                  />
+      <main className="archive-home" id="main">
+        <section className="archive-work" id="work" aria-labelledby="work-title">
+          <h1 id="work-title">My work</h1>
+          <div className="project-shelf">
+            {projects.map((project) => (
+              <article className="shelf-project" key={project.slug}>
+                <Link href={`/work/${project.slug}`}>
+                  <span className="shelf-image">
+                    <Image
+                      src={project.cover.src}
+                      alt={project.cover.alt}
+                      width={project.cover.width}
+                      height={project.cover.height}
+                      sizes="(max-width: 680px) 46vw, 220px"
+                      priority
+                    />
+                  </span>
+                  <span className="shelf-title">{project.name}</span>
+                  <small>{project.discipline}</small>
                 </Link>
-                <div className="project-caption">
-                  <h3>
-                    <Link href={`/work/${project.slug}`}>{project.name}</Link>
-                  </h3>
-                  <p>{project.discipline}</p>
-                </div>
               </article>
             ))}
           </div>
+        </section>
+
+        <section className="archive-practice" aria-labelledby="practice-title">
+          <h2 id="practice-title">Current practice</h2>
+          <p>Design, visual direction, and frontend development.</p>
+          <Link href="/about">A little more about me</Link>
+        </section>
+
+        <section className="archive-lower" aria-label="Concepts and introduction">
+          <div className="archive-studies" id="concepts">
+            <h2>Concepts</h2>
+            {concepts.length ? (
+              <div className="study-shelf">
+                {concepts.map((concept) => (
+                  <figure key={concept.src}>
+                    <Image
+                      src={concept.src}
+                      alt={concept.alt}
+                      width={concept.width}
+                      height={concept.height}
+                      sizes="(max-width: 680px) 70vw, 260px"
+                    />
+                    <figcaption>{concept.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            ) : (
+              <p className="concepts-empty">
+                Mockups, generated images, and landing ideas I&apos;m cooking up.
+              </p>
+            )}
+          </div>
+
+          <aside className="archive-about">
+            <h2>About Sultan</h2>
+            <p>I&apos;m a computer science graduate in Dubai who designs and builds websites, identities, and digital experiments.</p>
+            <p>The visual language changes with the subject. The care does not.</p>
+          </aside>
         </section>
       </main>
       <SiteFooter />

@@ -4,9 +4,9 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header-inner">
-        <Link href="/" className="wordmark">
-          Sultan Ali
-        </Link>
+        <p className="site-statement">
+          <Link href="/">Sultan Ali</Link> makes websites, identities, and digital experiments.
+        </p>
         <nav className="site-nav" aria-label="Primary navigation">
           <Link href="/#work">Work</Link>
           <Link href="/about">About</Link>
@@ -16,3 +16,4 @@ export function SiteHeader() {
     </header>
   );
 }
+

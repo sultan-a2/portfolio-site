@@ -28,7 +28,7 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main">
         <header className="project-hero shell">
           <div className="project-kicker project-meta">
             <p>{project.discipline}</p>
@@ -39,7 +39,7 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
             <p className="project-intro">{project.intro}</p>
             {project.liveUrl ? (
               <a href={project.liveUrl} target="_blank" rel="noreferrer" className="project-action">
-                View live site ↗
+                View live site
               </a>
             ) : null}
           </div>

@@ -77,10 +77,10 @@ export const projects: Project[] = [
     name: "Suzanne Saleh",
     discipline: "Print + web design",
     intro: "Print and the live site for Suzanne Saleh’s midlife wellness practice.",
-    cover: { src: "/work/suzanne-saleh/hero.png", alt: "Suzanne Saleh website home page", width: 1440, height: 1000 },
+    cover: { src: "/work/suzanne-saleh/hero.png", alt: "Suzanne Saleh website home page", width: 1425, height: 990 },
     liveUrl: "https://suzannesaleh.com/",
     blocks: [
-      { type: "image", image: { src: "/work/suzanne-saleh/hero.png", alt: "Suzanne Saleh website home page", width: 1440, height: 1000 }, caption: "Home page" },
+      { type: "image", image: { src: "/work/suzanne-saleh/hero.png", alt: "Suzanne Saleh website home page", width: 1425, height: 990 }, caption: "Home page" },
       { type: "video", src: "/work/suzanne-saleh/walkthrough.mp4", width: 1280, height: 603, caption: "Website walkthrough" },
       { type: "pair", images: [
         { src: "/work/suzanne-saleh/flyer-01.png", alt: "Suzanne Saleh holistic wellness services flyer", width: 1080, height: 1532 },
