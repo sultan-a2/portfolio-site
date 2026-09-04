@@ -22,26 +22,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "7-2",
-    name: "7/2",
-    discipline: "Product design",
-    context: "Independent concept",
-    intro: "I’m building 7/2 for dates in the UAE that actually feel worth remembering.",
-    cover: { src: "/work/7-2/hero.png", alt: "7/2 date discovery website interface", width: 803, height: 636 },
-    blocks: [
-      { type: "image", image: { src: "/work/7-2/hero.png", alt: "7/2 home and date filter interface", width: 803, height: 636 }, caption: "Current direction" },
-      { type: "pair", images: [
-        { src: "/work/7-2/image-studies.png", alt: "Generated visual studies for the 7/2 identity", width: 1440, height: 1120 },
-        { src: "/work/7-2/principles.png", alt: "7/2 product principles: fresh, curated, planned", width: 795, height: 637 },
-      ], caption: "Visual studies and product principles" },
-      { type: "image", image: { src: "/work/7-2/early-01.png", alt: "Early 7/2 landing page direction with colorful characters", width: 1440, height: 900 }, caption: "Early direction" },
-      { type: "pair", images: [
-        { src: "/work/7-2/early-02.png", alt: "Early modular 7/2 date discovery interface", width: 1440, height: 1100 },
-        { src: "/work/7-2/early-03.png", alt: "Early soft-focus 7/2 landing page direction", width: 1440, height: 900 },
-      ], caption: "The early versions helped me find the final direction" },
-    ],
-  },
-  {
     slug: "wayfarer",
     name: "Wayfarer",
     discipline: "Web design + development",
@@ -56,22 +36,6 @@ export const projects: Project[] = [
         { src: "/work/wayfarer/wiki-nuwa.webp", alt: "The Nüwa wiki page with a woodcut of her repairing the sky", width: 1600, height: 1000 },
       ], caption: "The wiki, and one of its pages" },
       { type: "image", image: { src: "/work/wayfarer/art.png", alt: "Blue monochrome deer artwork for Wayfarer", width: 1672, height: 941 }, caption: "Visual direction" },
-    ],
-  },
-  {
-    slug: "nargis-raza",
-    name: "Nargis Raza",
-    discipline: "Web design",
-    intro: "A personal site for transpersonal psychologist Nargis Raza.",
-    cover: { src: "/work/nargis/live-hero.webp", alt: "Nargis Raza home page, helping you come back to yourself", width: 1600, height: 1000 },
-    liveUrl: "https://nargis-raza-website.vercel.app/",
-    blocks: [
-      { type: "image", image: { src: "/work/nargis/live-hero.webp", alt: "Nargis Raza home page, helping you come back to yourself", width: 1600, height: 1000 }, caption: "Home page" },
-      { type: "pair", images: [
-        { src: "/work/nargis/live-work.webp", alt: "Nargis Raza one-to-one page: one to one, and slowly", width: 1600, height: 1000 },
-        { src: "/work/nargis/live-note.webp", alt: "A note from the Nargis Raza site titled Feminine freedom", width: 1600, height: 1000 },
-      ], caption: "Ways of working, and the notes" },
-      { type: "image", image: { src: "/work/nargis/texture.jpeg", alt: "Soft abstract color texture used across the Nargis Raza website", width: 1800, height: 1016 }, caption: "Atmosphere and visual texture" },
     ],
   },
   {
@@ -91,6 +55,42 @@ export const projects: Project[] = [
         { src: "/work/suzanne-saleh/flyer-01.png", alt: "Suzanne Saleh holistic wellness services flyer", width: 1080, height: 1532 },
         { src: "/work/suzanne-saleh/flyer-02.png", alt: "Suzanne Saleh midlife wellness flyer", width: 1080, height: 1532 },
       ], caption: "A5 print pieces" },
+    ],
+  },
+  {
+    slug: "nargis-raza",
+    name: "Nargis Raza",
+    discipline: "Web design",
+    intro: "A personal site for transpersonal psychologist Nargis Raza.",
+    cover: { src: "/work/nargis/live-hero.webp", alt: "Nargis Raza home page, helping you come back to yourself", width: 1600, height: 1000 },
+    liveUrl: "https://nargis-raza-website.vercel.app/",
+    blocks: [
+      { type: "image", image: { src: "/work/nargis/live-hero.webp", alt: "Nargis Raza home page, helping you come back to yourself", width: 1600, height: 1000 }, caption: "Home page" },
+      { type: "pair", images: [
+        { src: "/work/nargis/live-work.webp", alt: "Nargis Raza one-to-one page: one to one, and slowly", width: 1600, height: 1000 },
+        { src: "/work/nargis/live-note.webp", alt: "A note from the Nargis Raza site titled Feminine freedom", width: 1600, height: 1000 },
+      ], caption: "Ways of working, and the notes" },
+      { type: "image", image: { src: "/work/nargis/texture.jpeg", alt: "Soft abstract color texture used across the Nargis Raza website", width: 1800, height: 1016 }, caption: "Atmosphere and visual texture" },
+    ],
+  },
+  {
+    slug: "7-2",
+    name: "7/2",
+    discipline: "Product design",
+    context: "Independent concept",
+    intro: "I’m building 7/2 for dates in the UAE that actually feel worth remembering.",
+    cover: { src: "/work/7-2/hero.png", alt: "7/2 date discovery website interface", width: 803, height: 636 },
+    blocks: [
+      { type: "image", image: { src: "/work/7-2/hero.png", alt: "7/2 home and date filter interface", width: 803, height: 636 }, caption: "Current direction" },
+      { type: "pair", images: [
+        { src: "/work/7-2/image-studies.png", alt: "Generated visual studies for the 7/2 identity", width: 1440, height: 1120 },
+        { src: "/work/7-2/principles.png", alt: "7/2 product principles: fresh, curated, planned", width: 795, height: 637 },
+      ], caption: "Visual studies and product principles" },
+      { type: "image", image: { src: "/work/7-2/early-01.png", alt: "Early 7/2 landing page direction with colorful characters", width: 1440, height: 900 }, caption: "Early direction" },
+      { type: "pair", images: [
+        { src: "/work/7-2/early-02.png", alt: "Early modular 7/2 date discovery interface", width: 1440, height: 1100 },
+        { src: "/work/7-2/early-03.png", alt: "Early soft-focus 7/2 landing page direction", width: 1440, height: 900 },
+      ], caption: "The early versions helped me find the final direction" },
     ],
   },
 ];
