@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ConceptGallery } from "@/components/concept-gallery";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { concepts } from "@/data/concepts";
@@ -44,20 +45,7 @@ export default function Home() {
           <div className="archive-studies" id="concepts">
             <h2>Concepts</h2>
             {concepts.length ? (
-              <div className="study-shelf">
-                {concepts.map((concept) => (
-                  <figure key={concept.src}>
-                    <Image
-                      src={concept.src}
-                      alt={concept.alt}
-                      width={concept.width}
-                      height={concept.height}
-                      sizes="(max-width: 680px) 70vw, 260px"
-                    />
-                    <figcaption>{concept.caption}</figcaption>
-                  </figure>
-                ))}
-              </div>
+              <ConceptGallery concepts={concepts} />
             ) : (
               <p className="concepts-empty">
                 Mockups, generated images, and landing ideas I&apos;m cooking up.
