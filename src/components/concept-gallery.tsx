@@ -41,7 +41,7 @@ export function ConceptGallery({ concepts, limit }: { concepts: Concept[]; limit
           </li>
         ))}
 
-        {limit && concepts.length > limit ? (
+        {limit ? (
           <li>
             <Link href="/concepts" className="concept-row concept-row-all" onClick={() => playSound("tap")}>
               <span className="concept-row-title">All concepts</span>
