@@ -53,6 +53,10 @@ export const projects: Project[] = [
     blocks: [
       { type: "image", image: { src: "/work/wayfarer/hero.png", alt: "Wayfarer home page with a halftone white deer", width: 1280, height: 800 }, caption: "A home for readers of xianxia, xuanhuan, and wuxia" },
       { type: "video", src: "/work/wayfarer/walkthrough.mp4", poster: "/work/wayfarer/hero.png", width: 1280, height: 612, caption: "Website walkthrough" },
+      { type: "pair", images: [
+        { src: "/work/wayfarer/wiki.webp", alt: "Wayfarer wiki home with a search field and category tiles", width: 1600, height: 1000 },
+        { src: "/work/wayfarer/wiki-nuwa.webp", alt: "The Nüwa wiki page with a woodcut of her repairing the sky", width: 1600, height: 1000 },
+      ], caption: "The wiki, and one of its pages" },
       { type: "image", image: { src: "/work/wayfarer/art.png", alt: "Blue monochrome deer artwork for Wayfarer", width: 1672, height: 941 }, caption: "Visual direction" },
     ],
   },
