@@ -12,7 +12,7 @@ export default function Home() {
       <SiteHeader />
       <main className="archive-home" id="main">
         <section className="archive-work" id="work" aria-labelledby="work-title">
-          <h1 id="work-title">My work</h1>
+          <h1 id="work-title">Work I&apos;ve made</h1>
           <div className="project-shelf">
             {projects.map((project) => (
               <article className="shelf-project" key={project.slug}>

@@ -220,6 +220,7 @@ blockquote {
 
 .study-shelf figure {
   width: 100%;
+  height: 100%;
 }
 
 .study-shelf img {
@@ -237,15 +238,27 @@ blockquote {
 
 .concept-tile {
   display: block;
-  position: relative;
   width: 100%;
+  height: 100%;
   margin: 0;
-  border: 0;
-  padding: 0;
+  border: 1px solid var(--line);
+  padding: 10px;
   background: none;
   color: inherit;
   font: inherit;
+  text-align: left;
   cursor: pointer;
+  transition: border-color 160ms ease;
+}
+
+.concept-tile:hover,
+.concept-tile:focus-visible {
+  border-color: var(--ink);
+}
+
+.concept-tile:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
 }
 
 .concept-tile-image {
@@ -255,32 +268,28 @@ blockquote {
 }
 
 .concept-tile img {
-  transition: filter 180ms ease, transform 260ms ease;
+  transition: transform 260ms ease;
 }
 
 .concept-tile:hover img,
 .concept-tile:focus-visible img {
-  filter: contrast(1.04);
-  transform: scale(1.015);
+  transform: scale(1.02);
 }
 
-.concept-tile:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 3px;
+.concept-tile-meta {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
 }
 
-.concept-tile-count {
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
-  min-width: 20px;
-  padding: 2px 6px;
-  background: color-mix(in srgb, var(--ink) 82%, transparent);
-  color: var(--paper);
+.concept-tile-meta small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
   font-family: var(--sans);
   font-size: 10px;
-  line-height: 1.4;
-  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .dialog-overlay {
@@ -313,8 +322,51 @@ blockquote {
   width: auto;
   max-width: 100%;
   height: auto;
-  max-height: calc(100dvh - clamp(130px, 17vh, 175px));
+  max-height: calc(100dvh - clamp(200px, 26vh, 260px));
   object-fit: contain;
+}
+
+.lightbox-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px clamp(16px, 5vw, 80px) 4px;
+}
+
+.lightbox-thumb {
+  width: 78px;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  line-height: 0;
+  opacity: 0.42;
+  cursor: pointer;
+  transition: opacity 160ms ease;
+}
+
+.lightbox-thumb img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: top;
+}
+
+.lightbox-thumb:hover {
+  opacity: 0.75;
+}
+
+.lightbox-thumb[data-active="true"] {
+  opacity: 1;
+  outline: 1px solid var(--paper);
+  outline-offset: 2px;
+}
+
+.lightbox-thumb:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--paper);
+  outline-offset: 2px;
 }
 
 .lightbox-bar {

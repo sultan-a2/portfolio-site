@@ -50,12 +50,16 @@ export function ConceptGallery({ concepts }: { concepts: Concept[] }) {
                   alt={item.images[0].alt}
                   width={item.images[0].width}
                   height={item.images[0].height}
-                  sizes="(max-width: 680px) 70vw, 290px"
+                  sizes="(max-width: 680px) 70vw, 240px"
                 />
               </span>
-              <span className="concept-tile-count">{item.images.length}</span>
+              <span className="concept-tile-meta">
+                <span>{item.title}</span>
+                <small>
+                  {item.images.length} {item.images.length === 1 ? "image" : "images"}
+                </small>
+              </span>
             </button>
-            <figcaption>{item.title}</figcaption>
           </figure>
         ))}
       </div>
@@ -80,6 +84,24 @@ export function ConceptGallery({ concepts }: { concepts: Concept[] }) {
                 priority
               />
             </div>
+
+            {total > 1 ? (
+              <div className="lightbox-strip">
+                {concept.images.map((image, index) => (
+                  <button
+                    key={image.src}
+                    type="button"
+                    className="lightbox-thumb"
+                    aria-label={`Show ${image.caption}`}
+                    aria-current={index === slide}
+                    data-active={index === slide}
+                    onClick={() => setSlide(index)}
+                  >
+                    <Image src={image.src} alt="" width={image.width} height={image.height} sizes="90px" />
+                  </button>
+                ))}
+              </div>
+            ) : null}
 
             <div className="lightbox-bar">
               <div className="lightbox-meta">
