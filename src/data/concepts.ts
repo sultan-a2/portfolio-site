@@ -95,4 +95,65 @@ export const concepts: Concept[] = [
       },
     ],
   },
+  {
+    slug: "landing-pages",
+    title: "Landing pages",
+    images: [
+      {
+        src: "/concepts/landing-pages/deep-sea-embers.webp",
+        alt: "Deep Sea Embers landing page, a diver waving through green water",
+        width: 1800,
+        height: 974,
+        caption: "Deep Sea Embers",
+      },
+      {
+        src: "/concepts/landing-pages/dive-jump-swim.webp",
+        alt: "Dubai resort landing page reading dive, jump, swim over a turquoise sea",
+        width: 1800,
+        height: 1025,
+        caption: "Dive jump swim",
+      },
+      {
+        src: "/concepts/landing-pages/lonely-at-the-top.webp",
+        alt: "Lonely at the top landing page, a boy with a guitar against a blue mountain",
+        width: 1800,
+        height: 1039,
+        caption: "Lonely at the top",
+      },
+    ],
+  },
+  {
+    slug: "covers",
+    title: "Covers",
+    images: [
+      {
+        src: "/concepts/covers/time-alone.webp",
+        alt: "A rabbit leaping through a ring of stars over a blue sky, with a strip of Japanese stamps",
+        width: 1400,
+        height: 1417,
+        caption: "Time alone",
+      },
+      {
+        src: "/concepts/covers/break-free.webp",
+        alt: "A blue moth on a purple star field under the words break free",
+        width: 1400,
+        height: 1419,
+        caption: "Break free",
+      },
+      {
+        src: "/concepts/covers/found-myself-in-death.webp",
+        alt: "A grainy grey figure falling through a field, titled found myself in death",
+        width: 825,
+        height: 819,
+        caption: "Found myself in death",
+      },
+      {
+        src: "/concepts/covers/follow-me.webp",
+        alt: "A walking figure built from old cursor arrows beside the words follow me",
+        width: 1600,
+        height: 829,
+        caption: "Follow me",
+      },
+    ],
+  },
 ];
