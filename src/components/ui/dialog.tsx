@@ -41,7 +41,7 @@ function DialogContent({
       >
         {children}
         <DialogPrimitive.Close
-          className="dialog-close absolute top-5 right-5 z-30 grid size-10 place-items-center"
+          className="dialog-close absolute top-5 right-5 z-30 grid size-11 place-items-center"
           aria-label={closeLabel}
         >
           <X className="size-5" strokeWidth={1.5} />

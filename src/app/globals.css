@@ -64,6 +64,8 @@
 html {
   scroll-behavior: smooth;
   background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -88,6 +90,24 @@ img,
 video {
   display: block;
   max-width: 100%;
+}
+
+img {
+  outline: 1px solid oklch(1 0 0 / 0.1);
+  outline-offset: -1px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+figcaption,
+li,
+small {
+  text-wrap: pretty;
 }
 
 figure,
@@ -249,7 +269,7 @@ blockquote {
   align-items: center;
   gap: 6px;
   border: 1px solid rgb(241 239 233 / 0.22);
-  padding: 4px 9px;
+  padding: 8px 11px;
   background: rgb(11 12 16 / 0.72);
   color: var(--ink);
   font-family: var(--sans);
@@ -544,6 +564,7 @@ blockquote {
 
 .lightbox-count {
   min-width: 48px;
+  font-variant-numeric: tabular-nums;
   color: rgb(251 251 250 / 0.62);
   font-family: var(--sans);
   font-size: 11px;

@@ -56,11 +56,11 @@ const GlassFilter = React.memo(({ id, scale = DEFAULT_GLASS_FILTER_SCALE }: Glas
 ));
 GlassFilter.displayName = "GlassFilter";
 
-const liquidButtonVariants = cva("relative transition-transform duration-200 motion-reduce:transition-none", {
+const liquidButtonVariants = cva("relative transition-transform duration-150 ease-out motion-reduce:transition-none", {
   variants: {
     liquidVariant: {
       default:
-        "active:scale-[0.97] motion-reduce:active:scale-100 motion-reduce:hover:scale-100 [@media(hover:hover)]:hover:scale-105",
+        "active:scale-[0.96] motion-reduce:active:scale-100 motion-reduce:hover:scale-100 [@media(hover:hover)]:hover:scale-105",
       none: "",
     },
   },
