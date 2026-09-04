@@ -2,19 +2,21 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 import { ImageViewer } from "@/components/image-viewer";
 import type { Concept } from "@/data/concepts";
 
-export function ConceptGallery({ concepts }: { concepts: Concept[] }) {
+export function ConceptGallery({ concepts, limit }: { concepts: Concept[]; limit?: number }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const shown = limit ? concepts.slice(0, limit) : concepts;
   const concept = openIndex === null ? null : concepts[openIndex];
 
   return (
     <>
       <ul className="concept-index">
-        {concepts.map((item, index) => (
+        {shown.map((item, index) => (
           <li key={item.slug}>
             <button type="button" className="concept-row" onClick={() => setOpenIndex(index)}>
               <span className="concept-row-image">
@@ -34,6 +36,17 @@ export function ConceptGallery({ concepts }: { concepts: Concept[] }) {
             </button>
           </li>
         ))}
+
+        {limit && concepts.length > limit ? (
+          <li>
+            <Link href="/concepts" className="concept-row concept-row-all">
+              <span className="concept-row-title">All concepts</span>
+              <span className="concept-row-arrow">
+                <ArrowRight className="size-4" strokeWidth={1.5} />
+              </span>
+            </Link>
+          </li>
+        ) : null}
       </ul>
 
       <ImageViewer

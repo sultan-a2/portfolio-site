@@ -467,6 +467,89 @@ blockquote {
   transform: translateX(4px);
 }
 
+.concept-row-all {
+  justify-content: space-between;
+  padding: 13px 0;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.concept-row-all .concept-row-title {
+  flex: 0 1 auto;
+  font-size: 11px;
+}
+
+.concepts-main {
+  max-width: 1160px;
+  padding: clamp(56px, 7vw, 88px) var(--gutter) clamp(70px, 8vw, 104px);
+}
+
+.concept-covers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(0, clamp(220px, 24vw, 320px)));
+  gap: clamp(18px, 2.2vw, 32px);
+  margin-top: 26px;
+}
+
+.concept-cover {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  line-height: 0;
+}
+
+.concept-cover-image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--sunk);
+}
+
+.concept-cover img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 320ms ease;
+}
+
+.concept-cover:hover img,
+.concept-cover:focus-visible img {
+  transform: scale(1.02);
+}
+
+.concept-cover:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.concept-cover-count {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 3px 7px;
+  background: rgb(11 12 16 / 0.78);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.concept-covers figure {
+  margin: 0;
+}
+
+.concept-covers figcaption {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
 .concepts-empty {
   margin-top: 10px;
   font-size: 13px;

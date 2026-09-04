@@ -15,11 +15,4 @@ export const oneOffs: ViewerImage[] = [
     height: 1200,
     caption: "Direction x speed",
   },
-  {
-    src: "/one-offs/bubble.webp",
-    alt: "A figure alone in a grainy crowd, seen through an iridescent bubble",
-    width: 1600,
-    height: 1039,
-    caption: "Bubble",
-  },
 ];

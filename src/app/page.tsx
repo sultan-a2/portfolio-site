@@ -70,7 +70,7 @@ export default function Home() {
             <h2 className="home-heading">
               <ShineText delay="1.5s">Concepts</ShineText>
             </h2>
-            <ConceptGallery concepts={concepts} />
+            <ConceptGallery concepts={concepts} limit={3} />
           </div>
 
           <div id="one-offs">
