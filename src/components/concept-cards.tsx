@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Image01Icon, StarIcon } from "@hugeicons/core-free-icons";
+import { Image01Icon } from "@hugeicons/core-free-icons";
 
 import TravelCard from "@/components/craftui/travel-card";
 import { ImageViewer } from "@/components/image-viewer";
@@ -21,11 +21,10 @@ export function ConceptCards({ concepts }: { concepts: Concept[] }) {
             imageUrl={item.images[0].src}
             imageAlt={item.images[0].alt}
             title={item.title}
-            description={item.images.map((image) => image.caption).join(" · ")}
+            description=""
             price={`${item.images.length} images`}
-            availabilityText={item.images[0].caption}
-            tagText="Concept"
-            tagIcon={StarIcon}
+            availabilityText=""
+            tagText=""
             flightIcon={Image01Icon}
             exploreLabel="Explore"
             addToCartLabel="Open the set"

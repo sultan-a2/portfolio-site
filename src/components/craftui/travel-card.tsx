@@ -34,7 +34,7 @@ const stageConfig: Record<
     imageWidth: CARD_W,
     imageHeight: CARD_H,
     imageRadius: 8,
-    cardBg: "rgb(13, 27, 38)",
+    cardBg: "var(--paper)",
     ctaTop: CARD_H - 64,
     ctaLeft: CARD_W - 146,
     ctaWidth: 130,
@@ -47,7 +47,7 @@ const stageConfig: Record<
     imageWidth: CARD_W - 40,
     imageHeight: 280,
     imageRadius: 0,
-    cardBg: "rgb(255, 255, 255)",
+    cardBg: "var(--sunk)",
     ctaTop: CARD_H - 68,
     ctaLeft: 20,
     ctaWidth: CARD_W - 40,
@@ -156,7 +156,7 @@ export default function TravelCard({
             delay: shouldReduceMotion ? 0 : expanded ? 0 : 0.35,
           },
         }}
-        className="absolute inset-0 overflow-hidden rounded-[8px] shadow-xl"
+        className="absolute inset-0 overflow-hidden rounded-[8px] border border-[rgb(241_239_233_/_0.12)] shadow-xl"
       >
         <motion.div
           animate={{
@@ -193,31 +193,35 @@ export default function TravelCard({
             }}
           >
             <div className="flex items-start justify-between gap-3">
-              <h3 className="min-w-0 line-clamp-2 text-lg font-semibold tracking-tight text-balance text-[oklch(0.215_0.029_243.425)]">
+              <h3 className="min-w-0 line-clamp-2 text-lg font-semibold tracking-tight text-balance text-[var(--ink)]">
                 {title}
               </h3>
 
-              <span className="flex shrink-0 items-center gap-1.5 rounded-[4px] bg-[oklch(0.956_0.004_236.498)] py-1 ps-1 pe-3 text-xs font-medium whitespace-nowrap text-[oklch(0.215_0.029_243.425)] tabular-nums">
-                <span className="h-4 w-4 shrink-0" />
-                {availabilityText}
-              </span>
+              {availabilityText ? (
+                <span className="flex shrink-0 items-center gap-1.5 rounded-[4px] bg-[rgb(241_239_233_/_0.08)] py-1 ps-1 pe-3 text-xs font-medium whitespace-nowrap text-[var(--ink)] tabular-nums">
+                  <span className="h-4 w-4 shrink-0" />
+                  {availabilityText}
+                </span>
+              ) : null}
             </div>
           </motion.div>
 
+          {description ? (
           <motion.p
-            animate={{
-              opacity: expanded ? 1 : 0,
-              filter: expanded ? "blur(0px)" : "blur(2px)",
-            }}
-            transition={{
-              duration: shouldReduceMotion ? 0 : 0.12,
-              ease: "easeOut",
-              delay: shouldReduceMotion ? 0 : expanded ? 0.08 : 0,
-            }}
-            className="mt-2 line-clamp-2 text-sm leading-relaxed text-pretty text-[oklch(0.502_0.021_250.776)]"
-          >
-            {description}
-          </motion.p>
+              animate={{
+                opacity: expanded ? 1 : 0,
+                filter: expanded ? "blur(0px)" : "blur(2px)",
+              }}
+              transition={{
+                duration: shouldReduceMotion ? 0 : 0.12,
+                ease: "easeOut",
+                delay: shouldReduceMotion ? 0 : expanded ? 0.08 : 0,
+              }}
+              className="mt-2 line-clamp-2 text-sm leading-relaxed text-pretty text-[var(--muted)]"
+            >
+              {description}
+            </motion.p>
+          ) : null}
 
           <motion.div
             animate={{
@@ -231,18 +235,15 @@ export default function TravelCard({
             }}
             className="mt-3 flex items-center gap-2"
           >
-            <span className="rounded-[4px] bg-[oklch(0.956_0.004_236.498)] px-3 py-1 text-sm font-medium whitespace-nowrap text-[oklch(0.215_0.029_243.425)] tabular-nums">
+            <span className="rounded-[4px] bg-[rgb(241_239_233_/_0.08)] px-3 py-1 text-sm font-medium whitespace-nowrap text-[var(--ink)] tabular-nums">
               {price}
             </span>
-            <span className="flex items-center gap-1 rounded-[4px] bg-[oklch(0.956_0.004_236.498)] px-3 py-1 text-xs font-medium whitespace-nowrap text-[oklch(0.215_0.029_243.425)]">
-              <HugeiconsIcon
-                icon={tagIcon}
-                size={12}
-                strokeWidth={2}
-                color="oklch(0.215 0.029 243.425)"
-              />
-              {tagText}
-            </span>
+            {tagText ? (
+              <span className="flex items-center gap-1 rounded-[4px] bg-[rgb(241_239_233_/_0.08)] px-3 py-1 text-xs font-medium whitespace-nowrap text-[var(--ink)]">
+                <HugeiconsIcon icon={tagIcon} size={12} strokeWidth={2} color="var(--ink)" />
+                {tagText}
+              </span>
+            ) : null}
           </motion.div>
         </motion.div>
 
@@ -259,7 +260,7 @@ export default function TravelCard({
           }}
           transition={ctaTransition}
           whileTap={{ scale: 0.96 }}
-          className="absolute flex items-center justify-center gap-2 bg-[oklch(0.215_0.029_243.425)] text-white shadow-lg"
+          className="absolute flex items-center justify-center gap-2 bg-[var(--ink)] text-[var(--paper)] shadow-lg"
         >
           {!expanded && <span className="h-6 w-6 shrink-0" />}
 
@@ -309,13 +310,13 @@ export default function TravelCard({
               opacity: expanded ? 1 : [1, 0, 0.9, 1],
             }}
             transition={planeTransition}
-            className="absolute flex h-4 w-4 items-center justify-center rounded-[4px] bg-[oklch(0.215_0.029_243.425)]"
+            className="absolute flex h-4 w-4 items-center justify-center rounded-[4px] bg-[var(--ink)]"
           >
             <HugeiconsIcon
               icon={flightIcon}
               size={12}
               strokeWidth={2}
-              color="oklch(1 0 0)"
+              color="var(--paper)"
             />
           </motion.span>
         </AnimatePresence>
