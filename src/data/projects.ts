@@ -51,8 +51,7 @@ export const projects: Project[] = [
     cover: { src: "/work/wayfarer/live-hero.webp", alt: "Wayfarer home page, a halftone deer leaping across a blue field", width: 1600, height: 1000 },
     liveUrl: "https://wayfarer-five-hazel.vercel.app/",
     blocks: [
-      { type: "image", image: { src: "/work/wayfarer/hero.png", alt: "Wayfarer home page with a halftone white deer", width: 1280, height: 800 }, caption: "A home for readers of xianxia, xuanhuan, and wuxia" },
-      { type: "video", src: "/work/wayfarer/walkthrough.mp4", poster: "/work/wayfarer/hero.png", width: 1280, height: 612, caption: "Website walkthrough" },
+      { type: "image", image: { src: "/work/wayfarer/live-hero.webp", alt: "Wayfarer home page with a halftone white deer", width: 1600, height: 1000 }, caption: "A home for readers of xianxia, xuanhuan, and wuxia" },
       { type: "pair", images: [
         { src: "/work/wayfarer/wiki.webp", alt: "Wayfarer wiki home with a search field and category tiles", width: 1600, height: 1000 },
         { src: "/work/wayfarer/wiki-nuwa.webp", alt: "The Nüwa wiki page with a woodcut of her repairing the sky", width: 1600, height: 1000 },
@@ -68,11 +67,11 @@ export const projects: Project[] = [
     cover: { src: "/work/nargis/live-hero.webp", alt: "Nargis Raza home page, helping you come back to yourself", width: 1600, height: 1000 },
     liveUrl: "https://nargis-raza-website.vercel.app/",
     blocks: [
-      { type: "image", image: { src: "/work/nargis/hero.png", alt: "Nargis Raza website hero about freeing the feminine spirit", width: 1637, height: 834 }, caption: "Home page" },
+      { type: "image", image: { src: "/work/nargis/live-hero.webp", alt: "Nargis Raza home page, helping you come back to yourself", width: 1600, height: 1000 }, caption: "Home page" },
       { type: "pair", images: [
-        { src: "/work/nargis/about.png", alt: "Nargis Raza website about page", width: 805, height: 768 },
-        { src: "/work/nargis/work.png", alt: "Nargis Raza one-to-one work page", width: 1013, height: 810 },
-      ], caption: "About and ways of working" },
+        { src: "/work/nargis/live-work.webp", alt: "Nargis Raza one-to-one page: one to one, and slowly", width: 1600, height: 1000 },
+        { src: "/work/nargis/live-note.webp", alt: "A note from the Nargis Raza site titled Feminine freedom", width: 1600, height: 1000 },
+      ], caption: "Ways of working, and the notes" },
       { type: "image", image: { src: "/work/nargis/texture.jpeg", alt: "Soft abstract color texture used across the Nargis Raza website", width: 1800, height: 1016 }, caption: "Atmosphere and visual texture" },
     ],
   },
@@ -84,8 +83,11 @@ export const projects: Project[] = [
     cover: { src: "/work/suzanne-saleh/live-hero.webp", alt: "Suzanne Saleh home page, let’s make midlife a little less complicated", width: 1600, height: 1000 },
     liveUrl: "https://suzannesaleh.com/",
     blocks: [
-      { type: "image", image: { src: "/work/suzanne-saleh/hero.png", alt: "Suzanne Saleh home page, let’s make midlife a little less complicated", width: 1600, height: 1000 }, caption: "Home page" },
-      { type: "video", src: "/work/suzanne-saleh/walkthrough.mp4", width: 1280, height: 603, caption: "Website walkthrough" },
+      { type: "image", image: { src: "/work/suzanne-saleh/live-hero.webp", alt: "Suzanne Saleh home page, let’s make midlife a little less complicated", width: 1600, height: 1000 }, caption: "Home page" },
+      { type: "pair", images: [
+        { src: "/work/suzanne-saleh/live-world.webp", alt: "Suzanne Saleh World page with four coloured collection cards", width: 1600, height: 1000 },
+        { src: "/work/suzanne-saleh/live-recipes.webp", alt: "A recipe card from the Suzanne Saleh site, blueberry crumble", width: 1600, height: 1000 },
+      ], caption: "World, and one of its recipes" },
       { type: "pair", images: [
         { src: "/work/suzanne-saleh/flyer-01.png", alt: "Suzanne Saleh holistic wellness services flyer", width: 1080, height: 1532 },
         { src: "/work/suzanne-saleh/flyer-02.png", alt: "Suzanne Saleh midlife wellness flyer", width: 1080, height: 1532 },
