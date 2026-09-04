@@ -582,7 +582,7 @@ blockquote {
 }
 
 .lightbox-strip {
-  padding: 8px clamp(14px, 4vw, 64px) 0;
+  padding: 10px clamp(14px, 4vw, 64px) 0;
 }
 
 .lightbox-thumb {
@@ -620,11 +620,17 @@ blockquote {
   outline-offset: 2px;
 }
 
+/* The bar groups with the filmstrip above it, so it stays a pill the width
+   of its own content rather than a slab pinned to both screen edges. */
 .lightbox-bar {
-  padding: 14px clamp(14px, 4vw, 64px) clamp(16px, 3vw, 30px);
+  display: flex;
+  justify-content: center;
+  padding: 10px clamp(14px, 4vw, 64px) clamp(16px, 3vw, 28px);
 }
 
 .lightbox-glass {
+  width: auto;
+  max-width: min(680px, 92vw);
   border-color: rgb(251 251 250 / 0.14);
   background: rgb(251 251 250 / 0.06);
   color: var(--paper);
@@ -633,12 +639,22 @@ blockquote {
 .lightbox-glass-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  gap: clamp(16px, 3vw, 30px);
+}
+
+@media (max-width: 560px) {
+  .lightbox-glass {
+    max-width: 100%;
+  }
+
+  .lightbox-glass-inner {
+    gap: 14px;
+  }
 }
 
 .lightbox-meta {
   display: block;
+  flex: 1 1 auto;
   min-width: 0;
 }
 
