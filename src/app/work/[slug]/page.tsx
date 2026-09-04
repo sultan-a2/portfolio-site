@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ShineText } from "@/components/shine-text";
 import { getProject, projects } from "@/data/projects";
 
 export function generateStaticParams() {
@@ -34,7 +35,9 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
             <p>{project.discipline}</p>
             {project.context ? <p>{project.context}</p> : null}
           </div>
-          <h1>{project.name}</h1>
+          <h1>
+            <ShineText>{project.name}</ShineText>
+          </h1>
           <div className="project-intro-row">
             <p className="project-intro">{project.intro}</p>
             {project.liveUrl ? (

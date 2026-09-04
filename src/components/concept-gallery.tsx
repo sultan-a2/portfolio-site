@@ -4,34 +4,47 @@ import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
+import { LiquidButton, LiquidGlassCard } from "@/components/ui/liquid-glass";
+import { cn } from "@/lib/utils";
 import type { Concept } from "@/data/concepts";
 
 export function ConceptGallery({ concepts }: { concepts: Concept[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [mainApi, setMainApi] = useState<CarouselApi>();
+  const [thumbApi, setThumbApi] = useState<CarouselApi>();
   const [slide, setSlide] = useState(0);
 
   const concept = openIndex === null ? null : concepts[openIndex];
   const total = concept?.images.length ?? 0;
 
-  const go = useCallback(
-    (step: number) => {
-      if (!total) return;
-      setSlide((current) => (current + step + total) % total);
-    },
-    [total],
-  );
+  const onSelect = useCallback(() => {
+    if (!mainApi) return;
+    const index = mainApi.selectedScrollSnap();
+    setSlide(index);
+    thumbApi?.scrollTo(index);
+  }, [mainApi, thumbApi]);
+
+  useEffect(() => {
+    if (!mainApi) return;
+    mainApi.on("select", onSelect);
+    mainApi.on("reInit", onSelect);
+    return () => {
+      mainApi.off("select", onSelect);
+      mainApi.off("reInit", onSelect);
+    };
+  }, [mainApi, onSelect]);
 
   useEffect(() => {
     if (!concept) return;
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") go(1);
-      if (event.key === "ArrowLeft") go(-1);
+      if (event.key === "ArrowRight") mainApi?.scrollNext();
+      if (event.key === "ArrowLeft") mainApi?.scrollPrev();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [concept, go]);
+  }, [concept, mainApi]);
 
   const open = (index: number) => {
     setSlide(0);
@@ -71,56 +84,81 @@ export function ConceptGallery({ concepts }: { concepts: Concept[] }) {
               Image {slide + 1} of {total}. Use the arrow keys to move through the set.
             </DialogDescription>
 
-            <div className="lightbox-stage">
-              <Image
-                key={concept.images[slide].src}
-                src={concept.images[slide].src}
-                alt={concept.images[slide].alt}
-                width={concept.images[slide].width}
-                height={concept.images[slide].height}
-                sizes="92vw"
-                className="lightbox-image"
-                priority
-              />
-            </div>
+            <Carousel setApi={setMainApi} opts={{ loop: true }} className="lightbox-stage">
+              <CarouselContent className="ml-0 h-full">
+                {concept.images.map((image) => (
+                  <CarouselItem key={image.src} className="grid place-items-center pl-0">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={image.width}
+                      height={image.height}
+                      sizes="92vw"
+                      className="lightbox-image"
+                      priority
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
 
             {total > 1 ? (
-              <div className="lightbox-strip">
-                {concept.images.map((image, index) => (
-                  <button
-                    key={image.src}
-                    type="button"
-                    className="lightbox-thumb"
-                    aria-label={`Show ${image.caption}`}
-                    aria-current={index === slide}
-                    data-active={index === slide}
-                    onClick={() => setSlide(index)}
-                  >
-                    <Image src={image.src} alt="" width={image.width} height={image.height} sizes="90px" />
-                  </button>
-                ))}
-              </div>
+              <Carousel
+                setApi={setThumbApi}
+                opts={{ containScroll: "keepSnaps", dragFree: true }}
+                className="lightbox-strip"
+              >
+                <CarouselContent className="-ml-2 justify-center">
+                  {concept.images.map((image, index) => (
+                    <CarouselItem key={image.src} className="basis-auto pl-2">
+                      <button
+                        type="button"
+                        className={cn("lightbox-thumb", index === slide && "is-active")}
+                        aria-label={`Show ${image.caption}`}
+                        aria-current={index === slide}
+                        onClick={() => mainApi?.scrollTo(index)}
+                      >
+                        <Image src={image.src} alt="" width={image.width} height={image.height} sizes="90px" />
+                      </button>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
             ) : null}
 
             <div className="lightbox-bar">
-              <div className="lightbox-meta">
-                <span className="lightbox-title">{concept.title}</span>
-                <span className="lightbox-caption">{concept.images[slide].caption}</span>
-              </div>
-
-              {total > 1 ? (
-                <div className="lightbox-controls">
-                  <Button variant="ghost" size="icon" onClick={() => go(-1)} aria-label="Previous image">
-                    <ChevronLeft className="size-5" strokeWidth={1.5} />
-                  </Button>
-                  <span className="lightbox-count">
-                    {slide + 1} / {total}
+              <LiquidGlassCard glassSize="sm" className="lightbox-glass">
+                <div className="lightbox-glass-inner">
+                  <span className="lightbox-meta">
+                    <span className="lightbox-title">{concept.title}</span>
+                    <span className="lightbox-caption">{concept.images[slide].caption}</span>
                   </span>
-                  <Button variant="ghost" size="icon" onClick={() => go(1)} aria-label="Next image">
-                    <ChevronRight className="size-5" strokeWidth={1.5} />
-                  </Button>
+
+                  {total > 1 ? (
+                    <span className="lightbox-controls">
+                      <LiquidButton
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => mainApi?.scrollPrev()}
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft className="size-5" strokeWidth={1.5} />
+                      </LiquidButton>
+                      <span className="lightbox-count">
+                        {slide + 1} / {total}
+                      </span>
+                      <LiquidButton
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => mainApi?.scrollNext()}
+                        aria-label="Next image"
+                      >
+                        <ChevronRight className="size-5" strokeWidth={1.5} />
+                      </LiquidButton>
+                    </span>
+                  ) : null}
                 </div>
-              ) : null}
+              </LiquidGlassCard>
             </div>
           </DialogContent>
         ) : null}

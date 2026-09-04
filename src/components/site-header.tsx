@@ -1,11 +1,15 @@
 import Link from "next/link";
+import { ShineText } from "@/components/shine-text";
 
 export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header-inner">
         <p className="site-statement">
-          <Link href="/">Sultan Ali</Link> makes websites, identities, and digital experiments.
+          <Link href="/">
+            <ShineText>Sultan Ali</ShineText>
+          </Link>{" "}
+          makes websites, identities, and digital experiments.
         </p>
         <nav className="site-nav" aria-label="Primary navigation">
           <Link href="/#work">Work</Link>

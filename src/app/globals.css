@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
+/* shadcn tokens, tuned to the paper palette */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted-surface);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
 :root {
   --paper: #fbfbfa;
   --ink: #11110f;
@@ -8,6 +34,26 @@
   --gutter: clamp(22px, 4.2vw, 80px);
   --serif: "Times New Roman", Times, serif;
   --sans: Arial, Helvetica, sans-serif;
+
+  --radius: 0px;
+  --background: #fbfbfa;
+  --foreground: #11110f;
+  --card: #fbfbfa;
+  --card-foreground: #11110f;
+  --popover: #fbfbfa;
+  --popover-foreground: #11110f;
+  --primary: #11110f;
+  --primary-foreground: #fbfbfa;
+  --secondary: #f0f0ed;
+  --secondary-foreground: #11110f;
+  --muted-surface: #f0f0ed;
+  --muted-foreground: #65635f;
+  --accent: #f0f0ed;
+  --accent-foreground: #11110f;
+  --destructive: #a02c1c;
+  --border: #d8d6d0;
+  --input: #d8d6d0;
+  --ring: #11110f;
 }
 
 * {
@@ -119,6 +165,48 @@ blockquote {
 .project-action:hover,
 .text-link:hover {
   opacity: 0.48;
+}
+
+.shine {
+  display: inline;
+  background-image: linear-gradient(
+    110deg,
+    var(--ink) 36%,
+    #d94a32 42%,
+    #e07820 44.6%,
+    #e8b41c 47.3%,
+    #7a9a2e 50%,
+    #2e9a78 52.6%,
+    #2a8fbf 55.3%,
+    #4363ac 58%,
+    var(--ink) 64%
+  );
+  background-size: 250% 100%;
+  background-position-x: 150%;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: shine-sweep 7s ease-in-out infinite;
+}
+
+@keyframes shine-sweep {
+  0%,
+  12% {
+    background-position-x: 150%;
+  }
+  55%,
+  100% {
+    background-position-x: -150%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shine {
+    background-image: none;
+    color: var(--ink);
+    -webkit-text-fill-color: var(--ink);
+    animation: none;
+  }
 }
 
 .archive-home {
@@ -306,30 +394,30 @@ blockquote {
 }
 
 .lightbox-stage {
-  display: grid;
   flex: 1;
-  place-items: center;
   min-height: 0;
-  padding: clamp(44px, 6vw, 76px) clamp(16px, 5vw, 80px) 12px;
+  overflow: hidden;
+  padding: clamp(40px, 5vw, 68px) clamp(14px, 4vw, 64px) 8px;
+}
+
+.lightbox-stage > div {
+  height: 100%;
 }
 
 .lightbox-image {
   width: auto;
   max-width: 100%;
   height: auto;
-  max-height: calc(100dvh - clamp(200px, 26vh, 260px));
+  max-height: calc(100dvh - clamp(215px, 27vh, 275px));
   object-fit: contain;
 }
 
 .lightbox-strip {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px clamp(16px, 5vw, 80px) 4px;
+  padding: 8px clamp(14px, 4vw, 64px) 0;
 }
 
 .lightbox-thumb {
+  display: block;
   width: 78px;
   margin: 0;
   border: 0;
@@ -352,7 +440,7 @@ blockquote {
   opacity: 0.75;
 }
 
-.lightbox-thumb[data-active="true"] {
+.lightbox-thumb.is-active {
   opacity: 1;
   outline: 1px solid var(--paper);
   outline-offset: 2px;
@@ -365,31 +453,46 @@ blockquote {
 }
 
 .lightbox-bar {
+  padding: 14px clamp(14px, 4vw, 64px) clamp(16px, 3vw, 30px);
+}
+
+.lightbox-glass {
+  border-color: rgb(251 251 250 / 0.14);
+  background: rgb(251 251 250 / 0.06);
+  color: var(--paper);
+}
+
+.lightbox-glass-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 0 clamp(16px, 5vw, 80px) clamp(18px, 3vw, 34px);
-  color: var(--paper);
+}
+
+.lightbox-meta {
+  display: block;
+  min-width: 0;
 }
 
 .lightbox-title {
   display: block;
+  font-family: var(--serif);
   font-size: 14px;
 }
 
 .lightbox-caption {
   display: block;
   margin-top: 2px;
-  color: color-mix(in srgb, var(--paper) 62%, transparent);
+  color: rgb(251 251 250 / 0.62);
   font-family: var(--sans);
   font-size: 11px;
 }
 
 .lightbox-controls {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   color: var(--paper);
 }
 
@@ -397,9 +500,13 @@ blockquote {
   color: var(--paper);
 }
 
+.lightbox-controls button:hover {
+  background: rgb(251 251 250 / 0.12);
+}
+
 .lightbox-count {
-  min-width: 46px;
-  color: color-mix(in srgb, var(--paper) 62%, transparent);
+  min-width: 48px;
+  color: rgb(251 251 250 / 0.62);
   font-family: var(--sans);
   font-size: 11px;
   text-align: center;
@@ -744,5 +851,254 @@ blockquote {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- Alternate directions ---- */
+
+.dir {
+  min-height: 100dvh;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.dir-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 30px var(--gutter) 0;
+}
+
+.dir-nav,
+.dir-footer-links {
+  display: flex;
+  gap: 22px;
+}
+
+.dir-nav a,
+.dir-footer-links a,
+.dir-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.dir-main {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(64px, 8vw, 120px);
+  padding: clamp(52px, 7vw, 96px) var(--gutter) clamp(70px, 8vw, 110px);
+}
+
+.dir-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 0 var(--gutter);
+  border-top: 1px solid var(--line);
+  padding: 18px 0 30px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Nocturne: the site after dark */
+
+.dir-nocturne {
+  --paper: #0b0c10;
+  --ink: #f1efe9;
+  --muted: #8d8a83;
+  --line: #23262d;
+  --background: #0b0c10;
+  --foreground: #f1efe9;
+  --card: transparent;
+  --card-foreground: #f1efe9;
+  --border: #23262d;
+}
+
+.dir-nocturne .dir-statement {
+  max-width: 22ch;
+  margin: 0;
+  font-size: clamp(21px, 2.6vw, 32px);
+  line-height: 1.18;
+}
+
+.dir-nocturne .dir-heading {
+  margin: 0 0 26px;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nocturne-work {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(18px, 2vw, 30px);
+}
+
+.nocturne-card {
+  border-color: rgb(241 239 233 / 0.12);
+  background: rgb(241 239 233 / 0.04);
+}
+
+.nocturne-card-image {
+  display: block;
+  overflow: hidden;
+  background: #14161c;
+}
+
+.nocturne-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.nocturne-card a:hover img {
+  transform: scale(1.03);
+}
+
+.nocturne-card-name {
+  display: block;
+  margin-top: 16px;
+  font-size: 17px;
+}
+
+.nocturne-card small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 11px;
+}
+
+.nocturne-band {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(30px, 5vw, 90px);
+  border-top: 1px solid var(--line);
+  padding-top: clamp(30px, 4vw, 54px);
+}
+
+.nocturne-band p {
+  max-width: 34ch;
+  margin: 0 0 12px;
+}
+
+/* Blueprint: drafting table */
+
+.dir-blueprint {
+  --paper: #eef1f5;
+  --ink: #0d1b2a;
+  --muted: #5b6c80;
+  --line: #c2cdda;
+  --background: #eef1f5;
+  --foreground: #0d1b2a;
+  --card: #eef1f5;
+  --card-foreground: #0d1b2a;
+  --border: #c2cdda;
+  --sans: ui-monospace, "SF Mono", "Cascadia Mono", "Courier New", monospace;
+}
+
+.dir-blueprint .dir-statement {
+  max-width: 44ch;
+  margin: 0;
+  font-size: 14px;
+}
+
+.dir-blueprint .dir-nav,
+.dir-blueprint .dir-footer,
+.dir-blueprint small {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.dir-blueprint .dir-heading {
+  margin: 0 0 18px;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 8px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.blueprint-work {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blueprint-work li {
+  border-bottom: 1px solid var(--line);
+}
+
+.blueprint-work a {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr) minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+  padding: 14px 0;
+}
+
+.blueprint-thumb {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #dde4ec;
+}
+
+.blueprint-work img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  filter: saturate(0.35) contrast(1.05);
+  transition: filter 300ms ease;
+}
+
+.blueprint-work a:hover img {
+  filter: none;
+}
+
+.blueprint-name {
+  font-size: 20px;
+}
+
+.blueprint-work small {
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.blueprint-arrow {
+  color: var(--muted);
+  transition: transform 160ms ease;
+}
+
+.blueprint-work a:hover .blueprint-arrow {
+  transform: translate(2px, -2px);
+}
+
+.blueprint-band {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: clamp(30px, 5vw, 80px);
+}
+
+.blueprint-band p {
+  max-width: 34ch;
+  margin: 0 0 12px;
+}
+
+@media (max-width: 680px) {
+  .blueprint-work a {
+    grid-template-columns: 92px minmax(0, 1fr) 20px;
+  }
+
+  .blueprint-work small {
+    display: none;
   }
 }
