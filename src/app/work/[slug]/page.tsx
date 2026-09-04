@@ -65,24 +65,6 @@ export default async function ProjectPage(props: PageProps<"/work/[slug]">) {
                   ))}
                 </div>
               ) : null}
-              {block.type === "video" ? (
-                <div className="media-frame">
-                  <video
-                    controls
-                    muted
-                    playsInline
-                    preload="metadata"
-                    poster={block.poster}
-                    width={block.width}
-                    height={block.height}
-                    style={{ aspectRatio: `${block.width} / ${block.height}` }}
-                    aria-label={block.caption ?? "Project walkthrough"}
-                  >
-                    <source src={block.src} type="video/mp4" />
-                    Your browser cannot play this video.
-                  </video>
-                </div>
-              ) : null}
               {block.caption ? <figcaption className="media-caption">{block.caption}</figcaption> : null}
             </figure>
           ))}

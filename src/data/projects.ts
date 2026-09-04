@@ -7,8 +7,7 @@ export type ProjectImage = {
 
 export type ProjectBlock =
   | { type: "image"; image: ProjectImage; caption?: string }
-  | { type: "pair"; images: [ProjectImage, ProjectImage]; caption?: string }
-  | { type: "video"; src: string; poster?: string; width: number; height: number; caption?: string };
+  | { type: "pair"; images: [ProjectImage, ProjectImage]; caption?: string };
 
 export type Project = {
   slug: string;

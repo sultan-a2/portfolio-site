@@ -660,14 +660,9 @@ blockquote {
   background: var(--sunk);
 }
 
-.media-frame img,
-.media-frame video {
+.media-frame img {
   width: 100%;
   height: auto;
-}
-
-.media-frame video {
-  background: #111;
 }
 
 .media-pair {
