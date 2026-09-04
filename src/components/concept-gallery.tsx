@@ -40,29 +40,28 @@ export function ConceptGallery({ concepts }: { concepts: Concept[] }) {
 
   return (
     <>
-      <div className="study-shelf">
+      <ul className="concept-index">
         {concepts.map((item, index) => (
-          <figure key={item.slug}>
-            <button type="button" className="concept-tile" onClick={() => open(index)}>
-              <span className="concept-tile-image">
+          <li key={item.slug}>
+            <button type="button" className="concept-row" onClick={() => open(index)}>
+              <span className="concept-row-image">
                 <Image
                   src={item.images[0].src}
                   alt={item.images[0].alt}
                   width={item.images[0].width}
                   height={item.images[0].height}
-                  sizes="(max-width: 680px) 70vw, 240px"
+                  sizes="84px"
                 />
               </span>
-              <span className="concept-tile-meta">
-                <span>{item.title}</span>
-                <small>
-                  {item.images.length} {item.images.length === 1 ? "image" : "images"}
-                </small>
+              <span className="concept-row-title">{item.title}</span>
+              <span className="concept-row-count">{item.images.length}</span>
+              <span className="concept-row-arrow">
+                <ChevronRight className="size-4" strokeWidth={1.5} />
               </span>
             </button>
-          </figure>
+          </li>
         ))}
-      </div>
+      </ul>
 
       <Dialog open={concept !== null} onOpenChange={(next) => !next && setOpenIndex(null)}>
         {concept ? (
