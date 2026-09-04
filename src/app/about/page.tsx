@@ -16,19 +16,12 @@ export default function AboutPage() {
           <ShineText>Designer with a curious mind.</ShineText>
         </h1>
         <div className="about-grid">
+          <p>I&apos;m Sultan. I studied computer science in Bristol and I&apos;m back in Dubai now.</p>
           <p>
-            I&apos;m Sultan Ali. I studied computer science in Bristol, England, and I&apos;m back in Dubai, the city
-            that raised me.
+            I like making websites, playing around with design, trying ideas out and seeing where they go. A lot of the
+            time I don&apos;t really know what something is going to become until I start making it.
           </p>
-          <p>
-            I build websites and identities, and I keep a pile of concepts running alongside them: mockups, generated
-            images, landing pages for things that don&apos;t exist yet.
-          </p>
-          <p>
-            I work across web design, product ideas, visual direction, and print. I like entering a subject, finding
-            its visual language, then building it into something people can actually use.
-          </p>
-          <p>Some nights I make music instead.</p>
+          <p>I also make music sometimes.</p>
         </div>
       </main>
       <SiteFooter />

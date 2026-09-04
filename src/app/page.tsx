@@ -58,10 +58,8 @@ export default function Home() {
             <h2 className="home-heading">
               <ShineText delay="1s">About Sultan</ShineText>
             </h2>
-            <p>
-              I&apos;m a computer science graduate from Bristol, back in Dubai, the city I grew up in.
-            </p>
-            <p>I build websites and identities, chase concepts, and make music when the night runs long.</p>
+            <p>I&apos;m Sultan. I studied computer science in Bristol and I&apos;m back in Dubai now.</p>
+            <p>I like making websites, playing around with design, trying ideas out and seeing where they go.</p>
           </div>
         </section>
 
