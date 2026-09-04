@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ConceptGallery } from "@/components/concept-gallery";
-import { OneOffGrid } from "@/components/one-off-grid";
+import { OneOffRail } from "@/components/one-off-rail";
 import { ShineText } from "@/components/shine-text";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -65,20 +65,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="home-lower" aria-label="Concepts and one-offs">
-          <div id="concepts">
-            <h2 className="home-heading">
-              <ShineText delay="1.5s">Concepts</ShineText>
-            </h2>
-            <ConceptGallery concepts={concepts} limit={3} />
-          </div>
+        <section id="concepts" aria-labelledby="concepts-title">
+          <h2 id="concepts-title" className="home-heading">
+            <ShineText delay="1.5s">Concepts</ShineText>
+          </h2>
+          <ConceptGallery concepts={concepts} limit={3} />
+        </section>
 
-          <div id="one-offs">
-            <h2 className="home-heading">
-              <ShineText delay="2s">One-offs</ShineText>
-            </h2>
-            <OneOffGrid images={oneOffs} />
-          </div>
+        <section id="one-offs" aria-labelledby="one-offs-title">
+          <h2 id="one-offs-title" className="home-heading">
+            <ShineText delay="2s">One-offs</ShineText>
+          </h2>
+          <OneOffRail images={oneOffs} />
         </section>
       </main>
       <SiteFooter />

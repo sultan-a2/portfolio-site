@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
 import { ImageViewer } from "@/components/image-viewer";
+import { playSound } from "@/lib/sound";
 import type { Concept } from "@/data/concepts";
 
 export function ConceptGallery({ concepts, limit }: { concepts: Concept[]; limit?: number }) {
@@ -18,7 +19,10 @@ export function ConceptGallery({ concepts, limit }: { concepts: Concept[]; limit
       <ul className="concept-index">
         {shown.map((item, index) => (
           <li key={item.slug}>
-            <button type="button" className="concept-row" onClick={() => setOpenIndex(index)}>
+            <button type="button" className="concept-row" onClick={() => {
+                playSound("transition", 0.3);
+                setOpenIndex(index);
+              }}>
               <span className="concept-row-image">
                 <Image
                   src={item.images[0].src}
@@ -39,7 +43,7 @@ export function ConceptGallery({ concepts, limit }: { concepts: Concept[]; limit
 
         {limit && concepts.length > limit ? (
           <li>
-            <Link href="/concepts" className="concept-row concept-row-all">
+            <Link href="/concepts" className="concept-row concept-row-all" onClick={() => playSound("tap")}>
               <span className="concept-row-title">All concepts</span>
               <span className="concept-row-arrow">
                 <ArrowRight className="size-4" strokeWidth={1.5} />

@@ -1,4 +1,4 @@
-import { ConceptCovers } from "@/components/concept-covers";
+import { ConceptCards } from "@/components/concept-cards";
 import { ShineText } from "@/components/shine-text";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -17,7 +17,7 @@ export default function ConceptsPage() {
         <h1 className="home-heading">
           <ShineText>Concepts</ShineText>
         </h1>
-        <ConceptCovers concepts={concepts} />
+        <ConceptCards concepts={concepts} />
       </main>
       <SiteFooter />
     </>

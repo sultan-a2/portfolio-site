@@ -9,6 +9,7 @@ import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/com
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { LiquidButton, LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { cn } from "@/lib/utils";
+import { playSound } from "@/lib/sound";
 
 export type ViewerImage = {
   src: string;
@@ -56,13 +57,25 @@ export function ImageViewer({
 
   const step = useCallback(
     (direction: 1 | -1) => {
+      playSound("tap", 0.3);
       if (direction === 1) mainApi?.scrollNext();
       else mainApi?.scrollPrev();
     },
     [mainApi],
   );
 
-  const jumpTo = useCallback((index: number) => mainApi?.scrollTo(index), [mainApi]);
+  const jumpTo = useCallback(
+    (index: number) => {
+      playSound("tap", 0.3);
+      mainApi?.scrollTo(index);
+    },
+    [mainApi],
+  );
+
+  const close = useCallback(() => {
+    playSound("transition", 0.25);
+    onClose();
+  }, [onClose]);
 
   useEffect(() => {
     if (!open) return;
@@ -86,11 +99,11 @@ export function ImageViewer({
     pressPoint.current = null;
     if (start && Math.hypot(event.clientX - start.x, event.clientY - start.y) > 8) return;
     if ((event.target as HTMLElement).closest("img, button, a, .lightbox-glass")) return;
-    onClose();
+    close();
   };
 
   return (
-    <Dialog open={open} onOpenChange={(next) => !next && onClose()}>
+    <Dialog open={open} onOpenChange={(next) => !next && close()}>
       {images ? (
         <DialogContent
           closeLabel={`Close ${title}`}
