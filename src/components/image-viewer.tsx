@@ -46,21 +46,33 @@ export function ImageViewer({
     if (!mainApi) return;
     mainApi.on("select", onSelect);
     mainApi.on("reInit", onSelect);
+    mainApi.on("settle", onSelect);
     return () => {
       mainApi.off("select", onSelect);
       mainApi.off("reInit", onSelect);
+      mainApi.off("settle", onSelect);
     };
   }, [mainApi, onSelect]);
+
+  const step = useCallback(
+    (direction: 1 | -1) => {
+      if (direction === 1) mainApi?.scrollNext();
+      else mainApi?.scrollPrev();
+    },
+    [mainApi],
+  );
+
+  const jumpTo = useCallback((index: number) => mainApi?.scrollTo(index), [mainApi]);
 
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "ArrowRight") mainApi?.scrollNext();
-      if (event.key === "ArrowLeft") mainApi?.scrollPrev();
+      if (event.key === "ArrowRight") step(1);
+      if (event.key === "ArrowLeft") step(-1);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open, mainApi]);
+  }, [open, step]);
 
   // Clicking the empty space around the image closes, but a drag must not.
   const pressPoint = useRef<{ x: number; y: number } | null>(null);
@@ -90,7 +102,11 @@ export function ImageViewer({
             Image {slide + 1} of {total}. Use the arrow keys to move through the set.
           </DialogDescription>
 
-          <Carousel setApi={setMainApi} opts={{ loop: true }} className="lightbox-stage">
+          <Carousel
+            setApi={setMainApi}
+            opts={{ loop: true, duration: 16 }}
+            className="lightbox-stage"
+          >
             <CarouselContent className="ml-0 h-full">
               {images.map((image) => (
                 <CarouselItem key={image.src} className="grid place-items-center pl-0">
@@ -102,6 +118,7 @@ export function ImageViewer({
                     sizes="92vw"
                     className="lightbox-image"
                     priority
+                    loading="eager"
                   />
                 </CarouselItem>
               ))}
@@ -122,7 +139,7 @@ export function ImageViewer({
                       className={cn("lightbox-thumb", index === slide && "is-active")}
                       aria-label={`Show ${image.caption}`}
                       aria-current={index === slide}
-                      onClick={() => mainApi?.scrollTo(index)}
+                      onClick={() => jumpTo(index)}
                     >
                       <Image src={image.src} alt="" width={image.width} height={image.height} sizes="90px" />
                     </button>
@@ -145,7 +162,7 @@ export function ImageViewer({
                     <LiquidButton
                       variant="ghost"
                       size="icon"
-                      onClick={() => mainApi?.scrollPrev()}
+                      onClick={() => step(-1)}
                       aria-label="Previous image"
                     >
                       <ChevronLeft className="size-5" strokeWidth={1.5} />
@@ -156,7 +173,7 @@ export function ImageViewer({
                     <LiquidButton
                       variant="ghost"
                       size="icon"
-                      onClick={() => mainApi?.scrollNext()}
+                      onClick={() => step(1)}
                       aria-label="Next image"
                     >
                       <ChevronRight className="size-5" strokeWidth={1.5} />
