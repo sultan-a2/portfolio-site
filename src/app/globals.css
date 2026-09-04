@@ -853,3 +853,25 @@ blockquote {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* The about page carries a cursor trail of photos */
+
+.about-trail {
+  min-height: calc(100dvh - 210px);
+}
+
+.about-trail .about-main {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-trail .about-main a {
+  pointer-events: auto;
+}
+
+.about-trail-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
