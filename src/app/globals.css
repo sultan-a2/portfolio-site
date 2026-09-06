@@ -244,6 +244,13 @@ blockquote {
   }
 }
 
+/* The masthead carries its own height, so the home page needs less air under it */
+@media (min-width: 821px) {
+  .home .home-main {
+    padding-top: clamp(38px, 4.4vw, 64px);
+  }
+}
+
 .home-main {
   display: flex;
   flex-direction: column;
@@ -255,6 +262,31 @@ blockquote {
   max-width: 24ch;
   font-size: clamp(21px, 2.6vw, 32px);
   line-height: 1.18;
+}
+
+/* Paper Runners — Lift stands at the right margin under the nav, so the
+   masthead reads as words on the left and one object on the right. */
+.home .site-header-inner {
+  grid-template-areas:
+    "statement nav"
+    "statement runner";
+  row-gap: clamp(10px, 1.3vw, 20px);
+}
+
+.home .site-statement {
+  grid-area: statement;
+}
+
+.home .site-nav {
+  grid-area: nav;
+}
+
+.paper-runner {
+  grid-area: runner;
+  justify-self: end;
+  align-self: start;
+  height: clamp(132px, 20.5vw, 296px);
+  aspect-ratio: 3 / 5;
 }
 
 .home-heading {
@@ -880,6 +912,24 @@ blockquote {
   .site-header-inner {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .home .site-header-inner {
+    grid-template-areas:
+      "statement runner"
+      "nav runner";
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    column-gap: 24px;
+    row-gap: 14px;
+  }
+
+  .home .site-statement {
+    max-width: 18ch;
+  }
+
+  .paper-runner {
+    align-self: center;
   }
 
   .home-main {

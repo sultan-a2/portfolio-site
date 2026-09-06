@@ -1,7 +1,8 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { ShineText } from "@/components/shine-text";
 
-export function SiteHeader() {
+export function SiteHeader({ figure }: { figure?: ReactNode }) {
   return (
     <header className="site-header">
       <div className="site-header-inner">
@@ -16,6 +17,7 @@ export function SiteHeader() {
           <Link href="/about">About</Link>
           <a href="mailto:sultan91414@gmail.com">Email</a>
         </nav>
+        {figure}
       </div>
     </header>
   );

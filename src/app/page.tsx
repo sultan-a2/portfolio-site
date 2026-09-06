@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ConceptGallery } from "@/components/concept-gallery";
 import { OneOffRail } from "@/components/one-off-rail";
+import { PaperRunner } from "@/components/paper-runner";
 import { ShineText } from "@/components/shine-text";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -13,7 +14,7 @@ import { projects } from "@/data/projects";
 export default function Home() {
   return (
     <div className="home">
-      <SiteHeader />
+      <SiteHeader figure={<PaperRunner />} />
       <main className="home-main" id="main">
         <section id="work" aria-labelledby="work-title">
           <h1 id="work-title" className="home-heading">
