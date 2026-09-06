@@ -39,6 +39,23 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "name-it",
+    name: "name it.",
+    discipline: "Game design + development",
+    context: "Personal project",
+    intro: "The childhood game Name, Place, Animal, Thing, rebuilt as real multiplayer rooms in a browser.",
+    cover: { src: "/work/name-it/live-hero.webp", alt: "name it. home page, think fast write faster, over a colour-field landscape", width: 1600, height: 1000 },
+    liveUrl: "https://name-it.nameitgames.workers.dev/",
+    blocks: [
+      { type: "image", image: { src: "/work/name-it/live-hero.webp", alt: "name it. home page, think fast write faster, with the create-a-room panel", width: 1600, height: 1000 }, caption: "Home page" },
+      { type: "pair", images: [
+        { src: "/work/name-it/lobby.webp", alt: "The name it. lobby, bring the chaos, with a room code and two players waiting", width: 1600, height: 1000 },
+        { src: "/work/name-it/round.webp", alt: "A name it. round on the letter Y, four answers typed and the clock running", width: 1600, height: 1000 },
+      ], caption: "The room, and a round in play" },
+      { type: "image", image: { src: "/work/name-it/review.webp", alt: "The name it. review screen showing each answer scored ten, five or zero points", width: 1600, height: 1000 }, caption: "Scoring, after the round" },
+    ],
+  },
+  {
     slug: "suzanne-saleh",
     name: "Suzanne Saleh",
     discipline: "Print + web design",
